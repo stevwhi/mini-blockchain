@@ -14,6 +14,8 @@ namespace BlockchainAssignment
         public string hash;
         string prevHash;
 
+       
+
         public Block(){
             this.timestamp = DateTime.Now;
             this.index = 0;
@@ -27,12 +29,16 @@ namespace BlockchainAssignment
             this.hash= createHash();
         }
 
-        public Block(Block lastBlock)
+        public Block(Block lastBlock, List<Transaction> transactionList)
         {
             this.timestamp = DateTime.Now;
             this.index = lastBlock.index + 1;
             this.prevHash = lastBlock.hash;
-            this.hash= createHash();
+
+           
+
+            this.hash = createHash();
+            
         }
 
         public string createHash() {
@@ -50,7 +56,7 @@ namespace BlockchainAssignment
             return "Index: " + index.ToString()
                 + "\n" + "Timestamp: " + timestamp.ToString()
                 + "\n" + "Previous Hash: " + prevHash
-                + "\n" + "Hash: " + hash;
+                + "\n" + "Hash: " + hash +"\n";
         }
 
     }
